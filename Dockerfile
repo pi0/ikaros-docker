@@ -7,7 +7,7 @@ MAINTAINER Pooya Parsa <pooya@pi0.ir>
 RUN sudo apt-get update
 
 # Install dependencies
-RUN sudo apt-get install
+RUN sudo apt-get install -y \
  cmake \
  g++
  libjpeg-turbo8-dev \
