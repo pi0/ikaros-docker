@@ -12,8 +12,9 @@ docker run --rm pooya/ikaros
 # Test WebUI
 docker run --rm pooya/ikaros -w /ikaros/Examples/example.ikc
 ```
-
-- Default build directory is: _/ikaros_
+   
+- [x] Default build directory is: **/ikaros**   
+   
 
 ## The Ikaros Project
 
@@ -28,8 +29,8 @@ The main components of the IKAROS systems are:
 -  A plug-in architecture that allows new models to be added to the system
 -  A database with data from learning experiments that can be used for validation of the computational models.
 
-Further information on the project can be found at: [http://www.ikaros-project.org]
-source code is available from GitHub: [][http://github.com/ikaros-project/ikaros]
+Further information on the project can be found [Here](http://www.ikaros-project.org)   
+Source code is available from [GitHub](http://github.com/ikaros-project/ikaros)   
 
 
 ## Usage
@@ -57,7 +58,7 @@ docker run --rm pooya/ikaros [-W#][-p][-t][-T][-b#][-r#][-v][-q][-x][-X][-m][-l]
 -z#   seed random number generator
 ```
 
-## Examples:
+## Examples
 ```
 Assuming the current path is the /Bin in the Ikaros directory,
 an example can be run like this:
