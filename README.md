@@ -10,12 +10,12 @@ docker pull pooya/ikaros
 docker run --rm pooya/ikaros
 
 # Test WebUI
-docker run --rm pooya/ikaros -w /ikaros/Examples/example.ikc
+docker run -p 8000:8000 --rm pooya/ikaros -w /ikaros/Examples/example.ikc
 ```
    
 + Default build directory is: 
    - /ikaros
-+ Webinterface port 8000 is exposed by default. so you can access web interface using:
++ You can access web interface using:
    - ``http://<docker_host_ip>:8000``
 
 
@@ -70,7 +70,7 @@ an example can be run like this:
 
 Use the w-option to also start the WebUI:
 
-        docker run --rm pooya/ikaros -w /ikaros/Examples/example.ikc
+        docker run -p 8000:8000 --rm pooya/ikaros -w /ikaros/Examples/example.ikc
 
 This example will wait for a request from the Web browser at
 the default port (8000).
