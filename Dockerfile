@@ -8,29 +8,27 @@ MAINTAINER Pooya Parsa <pooya@pi0.ir>
 # Add Ubuntu Repository
 RUN \
   echo "deb http://ch.archive.ubuntu.com/ubuntu/ trusty main" >> /etc/apt/sources.list && \
-  echo 'APT::Get::AllowUnauthenticated \"true\";' >  /etc/apt/apt.conf.d/99AllowUnauthenticated
+  echo 'APT::Get::AllowUnauthenticated "true";' >  /etc/apt/apt.conf.d/99AllowUnauthenticated
 
 
 # Install dependencies
 RUN \
  apt-get update && apt-get install -y --force-yes \
+ curl \ 
  cmake \
  g++ \
  libjpeg-turbo8-dev \
  libgsl0-dev \
  libpng-dev \
  libblas-dev \
- curl \
  libavcodec-dev \
  libavformat-dev \
- libswscale-dev \
- tar \
- wget
+ libswscale-dev
 
 
 # Download the Ikaros source
 RUN \
- wget http://github.com/ikaros-project/ikaros/archive/master.tar.gz -O - | \
+ curl -SL http://github.com/ikaros-project/ikaros/archive/master.tar.gz | \
  tar -xzf - && \ 
  mv ikaros-master ikaros
 
