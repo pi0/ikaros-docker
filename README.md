@@ -7,10 +7,10 @@ Docker build scripts for IKaros project
 docker pull pooya/ikaros
 
 # Then you can run ikaros with this command:
-docker run --rm pooya/ikaros
+docker run -it --rm pooya/ikaros
 
 # Test WebUI
-docker run -p 8000:8000 --rm pooya/ikaros -w /ikaros/Examples/example.ikc
+docker run -it -p 8000:8000 --rm pooya/ikaros -w /ikaros/Examples/example.ikc
 ```
    
 + Default build directory is: 
@@ -66,11 +66,11 @@ docker run --rm pooya/ikaros [-W#][-p][-t][-T][-b#][-r#][-v][-q][-x][-X][-m][-l]
 Assuming the current path is the /Bin in the Ikaros directory,
 an example can be run like this:
 
-        docker run --rm pooya/ikaros /ikaros/Examples/example.ikc
+        docker run -it --rm pooya/ikaros /ikaros/Examples/example.ikc
 
 Use the w-option to also start the WebUI:
 
-        docker run -p 8000:8000 --rm pooya/ikaros -w /ikaros/Examples/example.ikc
+        docker run -it -p 8000:8000 --rm pooya/ikaros -w /ikaros/Examples/example.ikc
 
 This example will wait for a request from the Web browser at
 the default port (8000).
