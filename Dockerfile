@@ -1,6 +1,7 @@
 # Ikaros on Linux
 
 FROM ubuntu:14.04
+
 MAINTAINER Pooya Parsa <pooya@pi0.ir>
 
 # Get software list
@@ -21,9 +22,11 @@ RUN sudo apt-get install -y \
  build-essential \
  git
 
-
+# Disable strict host checking for git clone
+RUN mkdir -p ~/.ssh && echo "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+ 
 # Download the Ikaros source
-RUN git clone git@github.com:ikaros-project/ikaros.git
+RUN git clone http://github.com/ikaros-project/ikaros.git
 
 # Build Ikaros
 RUN cd ikaros/Build && \
