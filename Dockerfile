@@ -23,7 +23,7 @@ RUN sudo apt-get install -y \
  git
 
 # Disable strict host checking for git clone
-RUN mkdir -p ~/.ssh && echo "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+# RUN mkdir -p ~/.ssh && echo "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
  
 # Download the Ikaros source
 RUN git clone http://github.com/ikaros-project/ikaros.git
