@@ -1,6 +1,7 @@
 # Ikaros on Linux
 
-FROM ubuntu:14.04
+#FROM ubuntu:14.04
+FROM debian:wheezy
 
 MAINTAINER Pooya Parsa <pooya@pi0.ir>
 
@@ -20,13 +21,14 @@ RUN \
  libswscale-dev \
  tar \
  wget
- 
+
 
 # Download the Ikaros source
 RUN \
- wget https://github.com/ikaros-project/ikaros/archive/master.tar.gz && \
- tar -xzf master.tar.gz && \
+ wget http://github.com/ikaros-project/ikaros/archive/master.tar.gz -O - | \
+ tar -xzf - && \ 
  mv ikaros-master ikaros
+
 
 # Build Ikaros
 RUN \
@@ -36,8 +38,15 @@ RUN \
  ln -fvs /ikaros/Bin/ikaros /usr/local/bin && \
  ln -fvs /ikaros/Examples /Examples
 
+# SlimDown Container
+RUN \
+ apt-get clean \
+ rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/*
+
 # Entry point
 ENTRYPOINT [ "/ikaros/Bin/ikaros" ] 
 
+
 # Expose default webserver port
 EXPOSE 8000:8000
+
