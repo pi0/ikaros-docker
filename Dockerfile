@@ -5,6 +5,10 @@ FROM debian:wheezy
 
 MAINTAINER Pooya Parsa <pooya@pi0.ir>
 
+# Add Ubuntu Repository
+RUN \
+  echo "deb http://ch.archive.ubuntu.com/ubuntu/ trusty main" >> /etc/apt/sources.list \
+  echo 'APT::Get::AllowUnauthenticated "true";' >  /etc/apt/apt.conf.d/99AllowUnauthenticated
 
 # Install dependencies
 RUN \
