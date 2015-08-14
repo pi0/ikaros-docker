@@ -32,7 +32,8 @@ RUN git clone http://github.com/ikaros-project/ikaros.git
 RUN cd ikaros/Build && \
  cmake .. && \
  make && \
- ln -fvs /ikaros/Bin/ikaros /usr/local/bin
+ ln -fvs /ikaros/Bin/ikaros /usr/local/bin && \
+ ln -fvs /ikaros/Examples /Examples
 
 # Entry point
 ENTRYPOINT [ "/ikaros/Bin/ikaros" ] 
