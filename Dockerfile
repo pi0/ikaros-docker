@@ -37,3 +37,6 @@ RUN cd ikaros/Build && \
 
 # Entry point
 ENTRYPOINT [ "/ikaros/Bin/ikaros" ] 
+
+# Expose default webserver port
+EXPOSE 8000:8000
