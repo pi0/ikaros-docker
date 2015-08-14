@@ -23,9 +23,13 @@ RUN sudo apt-get install -y \
 
 
 # Download the Ikaros source
-RUN git clone http://github.com/ikaros-project/ikaros.git
+RUN git clone git@github.com:ikaros-project/ikaros.git
 
 # Build Ikaros
-RUN cd ikaros/Build \
- cmake .. \
- make
+RUN cd ikaros/Build && \
+ cmake .. && \
+ make && \
+ ln -fvs /ikaros/Bin/ikaros /usr/local/bin
+
+# Entry point
+ENTRYPOINT [ "/ikaros/Bin/ikaros" ] 
