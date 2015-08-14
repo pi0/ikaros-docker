@@ -4,11 +4,10 @@ FROM ubuntu:14.04
 
 MAINTAINER Pooya Parsa <pooya@pi0.ir>
 
-# Get software list
-RUN sudo apt-get update
 
 # Install dependencies
-RUN sudo apt-get install -y \
+RUN \
+ apt-get update && apt-get install -y \
  cmake \
  g++ \
  libjpeg-turbo8-dev \
@@ -19,17 +18,19 @@ RUN sudo apt-get install -y \
  libavcodec-dev \
  libavformat-dev \
  libswscale-dev \
- build-essential \
- git
-
-# Disable strict host checking for git clone
-# RUN mkdir -p ~/.ssh && echo "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+ tar \
+ wget
  
+
 # Download the Ikaros source
-RUN git clone http://github.com/ikaros-project/ikaros.git
+RUN \
+ wget https://github.com/ikaros-project/ikaros/archive/master.tar.gz && \
+ tar -xzf master.tar.gz && \
+ mv ikaros-master ikaros
 
 # Build Ikaros
-RUN cd ikaros/Build && \
+RUN \
+ cd ikaros/Build && \
  cmake .. && \
  make && \
  ln -fvs /ikaros/Bin/ikaros /usr/local/bin && \
