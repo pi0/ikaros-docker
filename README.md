@@ -13,8 +13,11 @@ docker run --rm pooya/ikaros
 docker run --rm pooya/ikaros -w /ikaros/Examples/example.ikc
 ```
    
-- [x] Default build directory is: **/ikaros**   
-   
++ Default build directory is: 
+   - /ikaros
++ Webinterface port 8000 is exposed by default. so you can access web interface using:
+   - ``http://<docker_host_ip>:8000``
+
 
 ## The Ikaros Project
 
