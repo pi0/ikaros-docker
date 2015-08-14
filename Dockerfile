@@ -9,7 +9,7 @@ RUN sudo apt-get update
 # Install dependencies
 RUN sudo apt-get install -y \
  cmake \
- g++
+ g++ \
  libjpeg-turbo8-dev \
  libgsl0-dev \
  libpng-dev \
